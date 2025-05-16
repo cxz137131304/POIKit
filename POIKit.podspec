@@ -7,37 +7,20 @@
 #
 
 Pod::Spec.new do |spec|
-
-  # ―――  Spec Metadata  ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  These will help people to find your library, and whilst it
-  #  can feel like a chore to fill in it's definitely to your advantage. The
-  #  summary should be tweet-length, and the description more in depth.
-  #
-
   spec.name         = "POIKit"
   spec.version      = "0.0.1"
   spec.summary      = "A short description of POIKit."
-
-  # This description is used to generate tags and improve search results.
-  #   * Think: What does it do? Why did you write it? What is the focus?
-  #   * Try to keep it short, snappy and to the point.
-  #   * Write the description between the DESC delimiters below.
-  #   * Finally, don't worry about the indent, CocoaPods strips it!
   spec.description  = <<-DESC
+POIKit
                    DESC
 
   spec.homepage     = "https://github.com/cxz137131304/POIKit"
 
   spec.license      = "MIT (POIKit)"
   # spec.license      = { :type => "MIT", :file => "FILE_LICENSE" }
+  spec.author             = { "karl.chen" => "137131304@qq.com" }
 
-  spec.author             = { "Poison" => "137131304@qq.com" }
-  # Or just: spec.author    = "Poison"
-  # spec.authors            = { "karl.chen" => "137131304@qq.com" }
-
-  # spec.platform     = :ios
-  # spec.platform     = :ios, "5.0"
+  spec.platform     = :ios, "13.0"
 
   #  When using multiple platforms
   # spec.ios.deployment_target = "5.0"
@@ -46,42 +29,25 @@ Pod::Spec.new do |spec|
   # spec.tvos.deployment_target = "9.0"
   # spec.visionos.deployment_target = "1.0"
 
-  spec.source       = { :git => "https://github.com/cxz137131304/POIKit.git", :tag => "#{spec.version}" }
-
-
-  # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  CocoaPods is smart about how it includes source code. For source files
-  #  giving a folder will include any swift, h, m, mm, c & cpp files.
-  #  For header files it will include any header in the folder.
-  #  Not including the public_header_files will make all headers public.
-  #
-
+  spec.source       = { :path => '.' }
   spec.source_files  = "Classes", "Classes/**/*.{h,m}"
   spec.exclude_files = "Classes/Exclude"
+  
+  spec.requires_arc = true
 
-  # spec.public_header_files = "Classes/**/*.h"
-
-  # spec.resource  = "icon.png"
-  # spec.resources = "Resources/*.png"
-
-  # spec.preserve_paths = "FilesToSave", "MoreFilesToSave"
-
-  # spec.framework  = "SomeFramework"
-  # spec.frameworks = "SomeFramework", "AnotherFramework"
-
-  # spec.library   = "iconv"
-  # spec.libraries = "iconv", "xml2"
-
-  # spec.requires_arc = true
-
-  # spec.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
-  # spec.dependency "JSONKit", "~> 1.4"
+  spec.public_header_files = "Classes/**/*.h"
   
   spec.dependency "RTRootNavigationController"
   spec.dependency "AFNetworking"
   spec.dependency "Masonry"
   spec.dependency "SDWebImage"
   spec.dependency "IQKeyboardManager"
+  spec.platform = :ios, '13.0'
+  
+  spec.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES', 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'i386' }
+  spec.swift_version = '5.0'
+
+  spec.ios.vendored_frameworks = 'Frameworks/*.framework'
+  spec.vendored_frameworks = '*.framework'
   
 end

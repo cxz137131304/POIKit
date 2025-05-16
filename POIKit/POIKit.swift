@@ -6,4 +6,12 @@
 //
 
 import Foundation
+import AFNetworking
 
+class AA: AFNetworkReachabilityManager {
+    
+}
+
+class BB: AFHTTPSessionManager {
+    
+}
