@@ -8,7 +8,7 @@
 import Foundation
 import AFNetworking
 
-class AA: AFNetworkReachabilityManager {
+public class AA: AFNetworkReachabilityManager {
     
 }
 
